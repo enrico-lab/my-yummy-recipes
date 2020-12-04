@@ -10,35 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_03_182711) do
+ActiveRecord::Schema.define(version: 2020_12_04_122311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "dishes", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "rating"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "doses", force: :cascade do |t|
-    t.text "description"
-    t.bigint "dish_id", null: false
-    t.bigint "ingredient_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["dish_id"], name: "index_doses_on_dish_id"
-    t.index ["ingredient_id"], name: "index_doses_on_ingredient_id"
-  end
-
-  create_table "ingredients", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  add_foreign_key "doses", "dishes"
-  add_foreign_key "doses", "ingredients"
 end
