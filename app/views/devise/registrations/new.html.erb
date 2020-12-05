@@ -4,17 +4,40 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :email,
+    <%= f.input :first_name,
+                label: false,
                 required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
+                input_html: { placeholder:"first name", autocomplete: "first-name" }%>
+    <%= f.input :last_name,
+                label: false,
+                required: true,
+                input_html: { placeholder:"last name", autocomplete: "last-name" }%>
+    <%= f.input :address,
+                label: false,
+                required: true,
+                input_html: { type:"search",placeholder:"address", id: "address-input", autocomplete: "address" }%>
+    <%= f.input :photo,
+                as: :file,
+                label: false,
+                required: true,
+                input_html: { placeholder:"photo", multiple: true } %>
+    <%= f.input :username,
+                label: false,
+                required: true,
+                input_html: { placeholder:"username", autocomplete: "username" }%>
+    <%= f.input :email,
+                label: false,
+                required: true,
+                input_html: {placeholder:"email", autocomplete: "email" }%>
     <%= f.input :password,
+                label: false,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
+                input_html: {placeholder:"password", autocomplete: "new-password" } %>
     <%= f.input :password_confirmation,
+                label: false,
                 required: true,
-                input_html: { autocomplete: "new-password" } %>
+                input_html: {placeholder:"confirm password", autocomplete: "new-password" } %>
   </div>
 
   <div class="form-actions">
