@@ -1,0 +1,16 @@
+<%= render 'shared/navbar' %>
+<div class="main-container">
+  <div class="profile-header">
+    <h2><%= current_user.first_name %> <%= current_user.last_name %></h2>
+    <%= link_to edit_user_registration_path do %>
+      <i class="far fa-edit"></i>
+    <% end %>
+    <%= link_to "logout", destroy_user_session_path, method: :delete, class: 'logout' %>
+    <div class="welcome-button-div">
+      <%= link_to dishes_path do %>
+        <button type="button" class="btn btn-primary">YUMMY</button>
+      <% end %>
+      </div>
+  </div>
+</div>
+

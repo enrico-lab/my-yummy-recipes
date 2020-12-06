@@ -25,8 +25,10 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.12.0'
 gem 'simple_form'
 gem 'devise'
-
-
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+gem 'dotenv-rails'
+gem 'faraday'
+gem "algoliasearch-rails"
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

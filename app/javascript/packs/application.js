@@ -16,3 +16,15 @@ import 'bootstrap';
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+document.addEventListener('turbolinks:load', () => {
+ if (addressInput) {
+    var places = require('places.js');
+    var placesAutocomplete = places({
+      apiKey: "2b484a69a28a3b5860863c9b8cde7543",
+      container: addressInput
+    });
+  }
+
+
+  });
+

@@ -10,4 +10,5 @@ class User < ApplicationRecord
   validates :last_name, presence: true
   validates :username, presence: true
   validates :email, presence: true
+  validates_associated :dishes
 end

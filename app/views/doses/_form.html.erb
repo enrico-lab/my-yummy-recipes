@@ -1,0 +1,6 @@
+<%= simple_form_for [ @dish, @dose ] do |f| %>
+  <%= f.input :description %>
+  <%= label_tag :ingredient, 'Search for an ingredient '%>
+  <%= text_field_tag :ingredient, nil, placeholder: 'Eg. Salt', class: 'form-control' %>
+  <%= f.submit class: 'btn btn-info mt-2'%>
+<% end %>
