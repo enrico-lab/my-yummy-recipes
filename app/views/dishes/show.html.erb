@@ -1,0 +1,25 @@
+<%= render 'shared/navbar' %>
+<div style="margin-top: 100px; color: white">
+  <div class="card mb-3 mx-auto border-0 rounded-lg" style="max-width: 1000px;">
+    <div class="row no-gutters ">
+      <div class="col-md-4 bg-dark">
+        <% if @dish.photo.attached? %>
+          <%= image_tag(@dish.photo, width: 300, height: 300, crop: :fill) %>
+        <% else %>
+          <img src="https://images.unsplash.com/photo-1570598912132-0ba1dc952b7d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2734&q=80" alt="">
+        <% end %>
+      </div>
+      <div class="col-md-8 d-flex">
+        <div class="card-body bg-dark">
+          <h1 class="card-title font-weight-lighter"><%= @dish.name.upcase %></h1>
+          <ul class="list-group list-group-flush bg-dark">
+          <% @dish.doses.each do |dose| %>
+            <li class="list-group-item  border-light bg-dark"><%= dose.ingredient.name %> - <%= dose.description %> - <%= link_to "Remove", dose_path(dose), method: :delete, class: 'text-info' %></li>
+          <% end %>
+          </ul>
+          <%= link_to "Add ingredient", new_dish_dose_path(@dish), class: 'btn btn-info align-bottom' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body style="background-color: #fff">
+  <div class="container-welcome">
+    <div class="welcome-text">
+      <p>Welcome to <strong>My YUMMY RECIPES</strong>.</p>
+    </div>
+    <div class="welcome-button-div">
+      <%= link_to new_user_registration_path do %>
+        <button type="button" class="btn btn-primary">SIGN UP</button>
+      <% end %>
+      <%= link_to new_user_session_path do %>
+        <button type="button" class="btn btn-primary">LOG IN</button>
+      <% end %>
+      <%= link_to destroy_user_session_path, method: :delete do %>
+        <button type="button" class="btn btn-primary">LOGOUT</button>
+      <% end %>
+      </div>
+
+  </div>
+
+</body>
+</html>
