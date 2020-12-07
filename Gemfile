@@ -28,7 +28,9 @@ gem 'devise'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 gem 'dotenv-rails'
 gem 'faraday'
+gem 'algolia-places-rails'
 gem "algoliasearch-rails"
+gem 'rest-client'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

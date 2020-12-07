@@ -6,7 +6,7 @@
         <% if @dish.photo.attached? %>
           <%= image_tag(@dish.photo, width: 300, height: 300, crop: :fill) %>
         <% else %>
-          <img src="https://images.unsplash.com/photo-1570598912132-0ba1dc952b7d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2734&q=80" alt="">
+          <img style="width: 300px; height: 300px" src="https://images.unsplash.com/photo-1570598912132-0ba1dc952b7d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2734&q=80" alt="">
         <% end %>
       </div>
       <div class="col-md-8 d-flex">
