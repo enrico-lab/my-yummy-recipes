@@ -3,7 +3,7 @@
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
+  <div class="form-inputs" style="margin: 50px;">
     <%= f.input :first_name,
                 label: false,
                 required: true,
@@ -16,6 +16,12 @@
                 label: false,
                 required: true,
                 input_html: { type:"search",placeholder:"address", id: "address-input", autocomplete: "address" }%>
+                <script src="https://cdn.jsdelivr.net/places.js/1/places.min.js"></script>
+                <script>
+                var placesAutocomplete = places({
+                  container: document.querySelector('#address-input')
+                });
+                </script>
     <%= f.input :photo,
                 as: :file,
                 label: false,

@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
+  authenticated :user do
+    root 'pages#home', as: :authenticated_root
+  end
   root to: 'pages#welcome'
   devise_for :user
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  get '/home', to: 'pages#home'
+  # get '/home', to: 'pages#home'
   resources :dishes do
     resources :doses, only: [:new, :create, :destroy]
+  end
+  resources :doses do
+    resources :ingredients, only: [:index, :show]
   end
 end
 

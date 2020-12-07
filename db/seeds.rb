@@ -9,6 +9,7 @@
 require 'json'
 require 'open-uri'
 require 'faker'
+require 'rest-client'
 
 Dish.destroy_all
 User.destroy_all
@@ -41,7 +42,7 @@ c_count = 0
 types = ["Carbonara", "Lasagna", "Guacamole", "Hummus", "Fagioli", "Beef Wellington", "Pudding", "Arrosto"]
 descriptions = ["buono"]
 User.all.each do |user|
-  4.times do
+  1.times do
     file_dishes = URI.open(url_dishes)
     dish = Dish.new(
       name: "#{types.sample}",
@@ -54,6 +55,31 @@ User.all.each do |user|
   end
 end
 puts 'Finished!'
+
+# #ingredient seed
+# api_key = "2e6305efe3a943eab995a723f50144c3"
+
+# p "Creating Ingredients seeds"
+# url = "https://api.spoonacular.com/food/ingredients/autocomplete?query=lemon&number=10&apiKey=#{api_key}"
+
+
+
+# request = RestClient::Request.execute(
+#    :method => :get,
+#    :url => url,
+#    :headers => {"key" => api_key}
+# )
+
+#ingredient seed
+api_key = "2e6305efe3a943eab995a723f50144c3"
+query = "banana"
+url = "https://api.spoonacular.com/recipes/complexSearch?query=#{query}&maxFat=25&number=2&apiKey=#{api_key}"
+response = RestClient.get(url, { content_type: :json, accept: :json })
+parsed_response = JSON.parse(response.body)
+p parsed_response
+
+
+p request
 
 
 
